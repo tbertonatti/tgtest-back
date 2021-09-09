@@ -10,8 +10,8 @@
 ### Clone the repo and install the dependencies:
 
 ```bash
-git clone https://github.com/tbertonatti/owt-nodejs-back.git
-cd owt-nodejs-back
+git clone https://github.com/tbertonatti/tgtest-back.git
+cd tgtest-back
 npm ci || npm i
 ```
 
