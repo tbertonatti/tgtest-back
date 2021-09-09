@@ -19,7 +19,10 @@ db.read().then(() => {
 });
 
 const addPerson = (person: Person) => {
-    db.data?.people.push({ id: String(db.data?.people.length + 1), ...person });
+    const id = db.data?.people.length
+        ? `${Number(db.data?.people[db.data?.people.length - 1].id) + 1}`
+        : "1";
+    db.data?.people.push({ id, ...person });
     db.write();
     return "Ok";
 };
