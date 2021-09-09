@@ -12,7 +12,7 @@
 ```bash
 git clone https://github.com/tbertonatti/owt-nodejs-back.git
 cd owt-nodejs-back
-npm ci
+npm ci || npm i
 ```
 
 ## Start the app
