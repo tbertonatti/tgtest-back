@@ -1,17 +1,13 @@
 import { join } from "path";
-import { Low, JSONFile } from "lowdb";
 import Person from "../models/person";
+import DB from "./api";
 
 // Use JSON file for storage
 const file = join(
     __dirname.substr(0, __dirname.lastIndexOf("build")),
     "db.json"
 );
-type Data = {
-    people: Person[]; // Expect people to be an array of strings
-};
-const adapter = new JSONFile<Data>(file);
-const db = new Low<Data>(adapter);
+const db = new DB(file);
 db.read().then(() => {
     db.data = db.data?.people?.length
         ? { people: db.data.people.filter((p) => p) }
