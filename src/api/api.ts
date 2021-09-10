@@ -7,16 +7,16 @@ const fileExists = (path: string): Promise<any> =>
             else resolve(true);
         });
     });
-const writeFile = (path: string, data: string, opts?: any) =>
+const writeFile = (path: string, data: string) =>
     new Promise<void>((resolve, reject) => {
-        fs.writeFile(path, data, opts, (err) => {
+        fs.writeFile(path, data, (err) => {
             if (err) reject(err);
             else resolve();
         });
     });
-const readFile = (path: string, opts?: any) =>
+const readFile = (path: string) =>
     new Promise((resolve, reject) => {
-        fs.readFile(path, opts, (err: any, data: any) => {
+        fs.readFile(path, 'utf8', (err: any, data: any) => {
             if (err) reject(err);
             else resolve(data);
         });
