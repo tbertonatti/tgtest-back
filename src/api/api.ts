@@ -16,7 +16,7 @@ const writeFile = (path: string, data: string) =>
     });
 const readFile = (path: string) =>
     new Promise((resolve, reject) => {
-        fs.readFile(path, 'utf8', (err: any, data: any) => {
+        fs.readFile(path, "utf8", (err: any, data: any) => {
             if (err) reject(err);
             else resolve(data);
         });
@@ -37,7 +37,9 @@ class DB {
         const exists = await fileExists(this.file);
         if (exists) {
             const data = await readFile(this.file);
-            this.data = typeof data === "string" ? JSON.parse(data) : data;
+            if (data) {
+                this.data = typeof data === "string" ? JSON.parse(data) : data;
+            }
         }
     }
     async write() {
